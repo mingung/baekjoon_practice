@@ -6,5 +6,4 @@ int main(void)
 	printf("%d", y - 543);
 }
 
-//this is test for git remote
-//hello hihi
+// น้มุ 18108
