@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\타입,연산자,조건문">
       <UniqueIdentifier>{2c3d85e5-a0fb-41c1-8df2-43ad640c8837}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\반복문">
+      <UniqueIdentifier>{6e130d69-a9ce-4b7d-807b-8d347de1e7c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="18108.c">
@@ -48,8 +51,11 @@
     <ClCompile Include="2753.c">
       <Filter>소스 파일\타입,연산자,조건문</Filter>
     </ClCompile>
+    <ClCompile Include="2739.c">
+      <Filter>소스 파일\반복문</Filter>
+    </ClCompile>
     <ClCompile Include="반복문_연습.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\반복문</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
