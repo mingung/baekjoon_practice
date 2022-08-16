@@ -60,5 +60,8 @@
     <ClCompile Include="10950.c">
       <Filter>소스 파일\반복문</Filter>
     </ClCompile>
+    <ClCompile Include="8393.c">
+      <Filter>소스 파일\반복문</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
