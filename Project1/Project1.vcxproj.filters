@@ -57,5 +57,8 @@
     <ClCompile Include="반복문_연습.c">
       <Filter>소스 파일\반복문</Filter>
     </ClCompile>
+    <ClCompile Include="10950.c">
+      <Filter>소스 파일\반복문</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
