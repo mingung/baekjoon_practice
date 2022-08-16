@@ -72,5 +72,8 @@
     <ClCompile Include="11021.c">
       <Filter>소스 파일\반복문</Filter>
     </ClCompile>
+    <ClCompile Include="11022.c">
+      <Filter>소스 파일\반복문</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
