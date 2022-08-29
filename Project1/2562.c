@@ -2,8 +2,8 @@
 int main()
 {
     int array[9];
-    int i, j, max;
-
+    int i,j, max;
+    
 
     for (i = 0; i < 9; i++)
     {
@@ -12,12 +12,13 @@ int main()
     max = array[0];
     for (i = 0; i < 9; i++)
     {
-        if (max < array[i])
+        if (max <= array[i])
         {
             max = array[i];
             j = i;
         }
     }
-    printf("%d\n%d", max, j + 1);
+    printf("%d\n%d", max, j+1);
 
 }
+// 최댓값이 몇번쨰 배열에 있는지 찾는 문제

@@ -29,3 +29,4 @@ int main()
     }
     printf("%d %d", minimum, maximum);
 }
+//배열의 값 입력 받고 최대 최소 출력
