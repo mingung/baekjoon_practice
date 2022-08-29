@@ -4,6 +4,7 @@ int main()
 	int N, a, b;
 	int i = 0;
 	int result_clear;
+	int T;
 	scanf("%d", &N);
 	a = N/10;
 	b = N%10;
@@ -27,3 +28,4 @@ int main()
 
 	}
 }
+// 반복문 마지막 제일 어려운 문제 끝
