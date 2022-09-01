@@ -1,23 +1,13 @@
 #include <stdio.h>
 int main()
 {
-    int array[9];
-    int i, j, max;
+    int N, i;
+    scanf("%d", &N);
+    float score[N];
 
-
-    for (i = 0; i < 9; i++)
+    for (i = 0; i < N; i++)
     {
-        scanf("%d", &array[i]);
+        scanf("%f", &score[i]);
     }
-    max = array[0];
-    for (i = 0; i < 9; i++)
-    {
-        if (max < array[i])
-        {
-            max = array[i];
-            j = i;
-        }
-    }
-    printf("%d\n%d", max, j + 1);
 
 }
