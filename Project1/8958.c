@@ -33,7 +33,7 @@ int main()
             }
             else
             {
-
+                break;
             }
         
         }
