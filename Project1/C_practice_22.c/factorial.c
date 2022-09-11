@@ -18,3 +18,4 @@ int factorial(int n)
     }
     return(sum);
 }
+//4! factorial 함수 만들기
