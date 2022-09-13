@@ -17,3 +17,4 @@ int FtoC(int temp_f)
     temp_c = ((float)temp_f - 32) /1.8;
     return(temp_c);
 }
+// È­¾¾ -> ¼·¾¾
