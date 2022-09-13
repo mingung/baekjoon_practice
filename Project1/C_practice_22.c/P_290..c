@@ -40,6 +40,6 @@ int is_prime(int n)
         }
         
     }
-    return(a);
+    return(1);
 
 }
