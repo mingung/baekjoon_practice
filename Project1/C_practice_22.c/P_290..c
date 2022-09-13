@@ -16,7 +16,7 @@ int main()
     }
     else
     {
-        printf("%d은 소수입니다.\n", x);
+        printf("%d은 소수입니다.\n", x); 
     }
 }
 int is_prime(int n)
@@ -40,6 +40,6 @@ int is_prime(int n)
         }
         
     }
-    return(result);
+    return(a);
 
 }
