@@ -17,3 +17,5 @@ float PoundtoKG(float Pound)
     KG = Pound * 0.453592;
     return(KG);
 }
+
+// Pound를 kG으로 변환
