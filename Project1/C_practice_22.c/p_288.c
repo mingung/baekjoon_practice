@@ -3,10 +3,10 @@ int get_larger( int x, int y);
 int main()
 {
     int a, b, result;
-    printf("µÎ °³ÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À: ");
+    printf("ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤: ");
     scanf("%d %d", &a, &b);
     result = get_larger(a, b);
-    printf("µÎ ¼ö Áß¿¡¼­ Å« ¼ö´Â %dÀÔ´Ï´Ù.", result);
+    printf("ë‘ ìˆ˜ ì¤‘ì—ì„œ í° ìˆ˜ëŠ” %dì…ë‹ˆë‹¤.", result);
 
 }
 int get_larger( int x, int y)
@@ -20,3 +20,4 @@ int get_larger( int x, int y)
         return(y);
     }
 }
+// í•¨ìˆ˜ ì›í˜•ì„ ì‚¬ìš©í•˜ì—¬ ë‘ ì •ìˆ˜ë¥¼ ì…ë ¥ ë°›ì€ í›„ ë” í° ìˆ˜ë¥¼ ì¶œë ¥í•˜ëŠ” ì˜ˆì œ
