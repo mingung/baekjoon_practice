@@ -8,7 +8,7 @@ int main()
     printf("&a[0] = %d\n", &a[1]); 
     printf("&a[0] = %d\n", &a[2]);
 
-    printf("a = %d\n", a); // 배열의 이름을 주소 형식으로 출력
+    printf("a = %d\n", a); // 배열의 이름을 주소 형식으로 출력 (첫번째 원소의 주소값과 동일)
 
     return 0;
 
