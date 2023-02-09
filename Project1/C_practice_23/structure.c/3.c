@@ -16,10 +16,11 @@ int main()
     double x_length, y_length, total_length;
     x_length = (double)(p1.x1 - p1.x2) * (p1.x1 - p1.x2);
     y_length = (double)(p1.y1 - p1.y2) * (p1.y1 - p1.y2);
-    total_length = sqrt(x_length + y_length);
+    total_length = sqrt(x_length + y_length); //sqrt() = 루트 구하는 내장함수
 
     printf("거리는 %.2lf입니다", total_length);
 
 
     return 0;
 }
+// 두 점 사이의 거리 구하기
