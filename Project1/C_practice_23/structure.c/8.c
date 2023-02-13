@@ -29,4 +29,4 @@ int main(void)
     printf("이름: %s, 학번: %d, 평점: %f\n", max.name, max.number, max.gpa);
 
 }
-//미 완료 **
+//미 완료 ** -> 완료료
