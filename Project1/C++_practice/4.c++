@@ -1,3 +1,2 @@
 // 푸시가 안되는 오류
-
-// 19: 51
+// git push study master
