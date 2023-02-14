@@ -4,5 +4,5 @@
 // cout << PI; PI의 값을 화면에 출력
 // x = PI; PI의 값을 다른 변수에 할당
 
-// perimeter = 2 * PI * radius; // 2는 리터럴(상수 그대로 사용), PI는 상수
+// perimeter = 2 * PI * radius; // 2는 리터럴(상수 그대로 사용),, PI는 상수
 
