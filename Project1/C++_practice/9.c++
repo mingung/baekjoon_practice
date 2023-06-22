@@ -25,7 +25,7 @@ int main()
     fullname = first + space + last + dot + space + initial;
     // 전체 이름 출력
     cout << "전체이름(full name)" << fullname;
-    return 0;
+    return 0;   
 
     
 
