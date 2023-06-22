@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/alsrn/source/repos/mingung/baekjoon_practice/Project1",
-      "program": "c:/Users/alsrn/source/repos/mingung/baekjoon_practice/Project1/build/Debug/outDebug",
+      "cwd": "c:/Users/alsrn/source/repos/mingung/baekjoon_practice/Project1/C++_practice",
+      "program": "c:/Users/alsrn/source/repos/mingung/baekjoon_practice/Project1/C++_practice/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
