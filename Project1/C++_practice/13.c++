@@ -1,7 +1,7 @@
-// ÀÚ·áÇü º¯È¯
+// ìë£Œí˜• ë³€í™˜
 /*
-* »ê¼ú ¿¬»êÀÚ°¡ ¾ø´Â ÀÚ·áÇü(bool, char, short, float)¿¡
-* »ê¼ú ¿¬»êÀÚ¸¦ Àû¿ëÇØ¼­ ¾Ï¹¬Àû ÀÚ·áÇü º¯È¯ÇÏ±â
+* ì‚°ìˆ  ì—°ì‚°ìê°€ ì—†ëŠ” ìë£Œí˜•(bool, char, short, float)ì—
+* ì‚°ìˆ  ì—°ì‚°ìë¥¼ ì ìš©í•´ì„œ ì•”ë¬µì  ìë£Œí˜• ë³€í™˜í•˜ê¸°
 */
 
 #include <iostream>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    // ¼±¾ğ
+    // ì„ ì–¸
     bool x = true;
     char y = 'A';
     short z = 14;
     float t = 24.5;
-    // bool¿¡¼­ int·Î ÀÚ·áÇü º¯È¯
-    cout << "x + 100ÀÇ ÀÚ·áÇü: " << typeid(x + 100).name() << endl;
-    cout << "x + 100ÀÇ °ª: " << x + 100 << endl;
-    // char¿¡¼­ int·Î ÀÚ·áÇü º¯È¯
-    cout << "y + 1000ÀÇ ÀÚ·áÇü: " << typeid(y + 1000).name() << endl;
-    cout << "y + 1000ÀÇ °ª: " << y + 1000 << endl;
-    // short¿¡¼­ int·Î ÀÚ·áÇü º¯È¯
-    cout << "z * 100ÀÇ ÀÚ·áÇü: " << typeid(z * 100).name() << endl;
-    cout << "z * 100ÀÇ °ª: " << z * 100 << endl;
-    // float¿¡¼­ double·Î ÀÚÈ¿Çü º¯È¯
-    cout << "t + 15000.2ÀÇ ÀÚ·áÇü: " << typeid(t + 15000.2).name() << endl;
-    cout << "t + 15000.2ÀÇ °ª: " << t + 15000.2;
+    // boolì—ì„œ intë¡œ ìë£Œí˜• ë³€í™˜
+    cout << "x + 100ì˜ ìë£Œí˜•: " << typeid(x + 100).name() << endl;
+    cout << "x + 100ì˜ ê°’: " << x + 100 << endl;
+    // charì—ì„œ intë¡œ ìë£Œí˜• ë³€í™˜
+    cout << "y + 1000ì˜ ìë£Œí˜•: " << typeid(y + 1000).name() << endl;
+    cout << "y + 1000ì˜ ê°’: " << y + 1000 << endl;
+    // shortì—ì„œ intë¡œ ìë£Œí˜• ë³€í™˜
+    cout << "z * 100ì˜ ìë£Œí˜•: " << typeid(z * 100).name() << endl;
+    cout << "z * 100ì˜ ê°’: " << z * 100 << endl;
+    // floatì—ì„œ doubleë¡œ ìíš¨í˜• ë³€í™˜
+    cout << "t + 15000.2ì˜ ìë£Œí˜•: " << typeid(t + 15000.2).name() << endl;
+    cout << "t + 15000.2ì˜ ê°’: " << t + 15000.2;
     return 0;
 
 }
