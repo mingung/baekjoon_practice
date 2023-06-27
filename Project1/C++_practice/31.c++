@@ -62,7 +62,7 @@ void output(int year, bool result)
     {
         cout << year << "년은 윤년입니다";
     }
-    else // return 0 -> 반환값 x
+    else // return 0 -> 반환값이 없음
     {
         cout << year << "년은 윤년이 아닙니다";
     }

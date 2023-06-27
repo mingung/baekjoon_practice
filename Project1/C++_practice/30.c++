@@ -34,6 +34,6 @@ int main()
     cout << "두 번째 숫자를 입력하세요: ";
     cin >> second;
     // 함수 호출
-    cout << "두 수 중에 큰 것 = " << larger(first, second) << endl; // 두 값을 larger 함수로 전달 -> larger 함수에서는 둘 중 더 큰 값을 리턴
+    cout << "두 수 중에 큰 것 = " << larger(first, second) << endl; // 두 값을 larger 함수로 전달 -> larger 함수에서는 둘 중 더 큰 값을 리턴함
     return 0; 
 }
