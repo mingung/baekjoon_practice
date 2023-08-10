@@ -1,4 +1,6 @@
 // sig_var_const_1.v
+//D-플립플롭
+
 module sig_var_const_1(data_out, rstb, clk, data_in);
 output reg [3:0] data_out; // 4 bit
 input rstb, clk;
@@ -12,7 +14,7 @@ if (!rstb) begin
 end
 else begin
     sig_delay <= data_in;
-    data_out <= sig_delay;
+    data_out <= sig_delay; // 병렬 구조
 end
 endmodule
 
