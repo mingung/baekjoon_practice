@@ -4,7 +4,7 @@ output reg out;
 input i0, i1, i2, i3;
 input s1, s0;
 
-always @(s1 or s0 i0 or i1 or i2 or i3)
+always @(s1 or s0 or i0 or i1 or i2 or i3)
     case({s0, s1}) //s0, s1을 그룹화
         0: out <= i0;
         1: out <= i1;
