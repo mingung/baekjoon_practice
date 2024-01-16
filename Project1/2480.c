@@ -1,41 +1,24 @@
 #include <stdio.h>
 int main()
 {
-	int A, B, C;
-	scanf("%d %d %d", &A, &B, &C);
+	int X, N, a, b;
+	int i;
+	int sum = 0;
+	scanf("%d", &X); // 영수증에 적힌 총 금액
+	scanf("%d", &N); // 영수증에 적힌 구매한 물건의 종류의 수
 
-	if (A == B && B == C)
+	for (i = 0; i < N; i++)
 	{
-		printf("%d", 10000 + A * 1000);
+		scanf("%d %d", &a, &b); // 각 물건의 가격, 개수
+		sum = sum + a * b;
 	}
-	else if (A == B && B != C)
+	if (X == sum)
 	{
-		printf("%d", 1000 + A * 100);
+		printf("Yes");
 	}
-	else if (B == C && C != A)
+	else
 	{
-		printf("%d", 1000 + B * 100);
+		printf("No");
 	}
-	else if (C == A && A != B)
-	{
-		printf("%d", 1000 + C * 100);
-	}
-	else if (A != B && B != C && C != A)
-	{
-		if (A > B && A > C)
-		{
-			printf("%d", A * 100);
-		}
-		else if (B > A && B > C)
-		{
-			printf("%d", B * 100);
-		}
-		else if (C > A && C > B)
-		{
-			printf("%d", C * 100);
-		}
-
-	}
-
 }
-// 주사위 던져서 값 계산하는 프로그램
+// 영수증에 적힌 금액과 산 총액을 비교하여 계산의 합당 여부를 판단하는 프로그램
