@@ -1,5 +1,5 @@
 module mux12bit (a, b, s, out);
-input a;
+input s;
 input [11:0] a, b;
 output [11:0] out;
 

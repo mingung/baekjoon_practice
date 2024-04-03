@@ -20,9 +20,9 @@ initial begin // program codes start
     mem[8] = {`SUB, 12'h66};
     mem[9] = {`STO, 12'h64};
     mem[10] = {`STP, 12'h0};
-    mem[`h64] = 16'h4444 // program data start
-    mem[`h65] = 16'h2222;
-    mem[`h66] = 16'h1111;
+    mem['h64] = 16'h4444; // program data start
+    mem['h65] = 16'h2222;
+    mem['h66] = 16'h1111;
 
 end
 endmodule
