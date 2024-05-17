@@ -1,17 +1,26 @@
-module Convol_layer_1(clk, b);
+module Convol_layer(clk, b, max_pool_result_1_flat, max_pool_result_2_flat, max_pool_result_3_flat);
 input clk;
-output reg [7:0] b;
-reg [7:0] rx_data [29:0] [29:0];
-reg [7:0] filter_1 [2:0] [2:0];
-reg [7:0] filter_2 [2:0] [2:0];
-reg [7:0] filter_3 [2:0] [2:0];
-reg [7:0] result_1 [27:0] [27:0];
-reg [7:0] result_2 [27:0] [27:0];
-reg [7:0] result_3 [27:0] [27:0];
+output reg [1000:0] b;
+reg [3:0] rx_data [29:0] [29:0];
+reg [3:0] filter_1 [2:0] [2:0];
+reg [3:0] filter_2 [2:0] [2:0];
+reg [3:0] filter_3 [2:0] [2:0];
+reg [3:0] result_1 [27:0] [27:0];
+reg [3:0] result_2 [27:0] [27:0];
+reg [3:0] result_3 [27:0] [27:0];
+reg [3:0] max_pool_result_1 [13:0][13:0];
+reg [3:0] max_pool_result_2 [13:0][13:0];
+reg [3:0] max_pool_result_3 [13:0][13:0];
+reg [3:0] temp_max;
+
+
+// 출력 포트를 단일 벡터로 정의
+
 integer i, j, k;
+integer m, n, p, q;
 
  // ReLU 함수 모듈
-    function [7:0] relu(input [7:0] input_val);
+    function [3:0] relu(input [3:0] input_val);
         begin
             if (input_val > 0)
                 relu = input_val;
@@ -32,6 +41,8 @@ always @(posedge clk) begin
    for (i = 0; i < 3; i = i + 1) begin
         for (j = 0; j < 3; j = j + 1) begin
             filter_1[i][j] <= 8'b00000001;
+            filter_2[i][j] <= 8'b00000001;
+            filter_3[i][j] <= 8'b00000001;
         end
     end
 
@@ -65,8 +76,55 @@ always @(posedge clk) begin
         end
     end
 
-  
+
+    // max - pooling (2x2 filter and stride 2)
+
+
+for (i = 0; i < 27; i = i + 2) begin
+    for (j = 0; j < 27; j = j + 2) begin
+        m = i / 2; // 결과 배열의 인덱스
+        n = j / 2;
+
+        // 결과 1에 대한 max pooling
+        temp_max = result_1[i][j];
+        for (p = 0; p < 2; p = p + 1) begin
+            for (q = 0; q < 2; q = q + 1) begin
+                if (result_1[i+p][j+q] > temp_max) begin
+                    temp_max = result_1[i+p][j+q];
+                end
+            end
+        end
+        max_pool_result_1[m][n] <= temp_max;
+
+        // 결과 2에 대한 max pooling
+        temp_max = result_2[i][j];
+        for (p = 0; p < 2; p = p + 1) begin
+            for (q = 0; q < 2; q = q + 1) begin
+                if (result_2[i+p][j+q] > temp_max) begin
+                    temp_max = result_2[i+p][j+q];
+                end
+            end
+        end
+        max_pool_result_2[m][n] <= temp_max;
+
+        // 결과 3에 대한 max pooling
+        temp_max = result_3[i][j];
+        for (p = 0; p < 2; p = p + 1) begin
+            for (q = 0; q < 2; q = q + 1) begin
+                if (result_3[i+p][j+q] > temp_max) begin
+                    temp_max = result_3[i+p][j+q];
+                end
+            end
+        end
+        max_pool_result_3[m][n] <= temp_max;
+    end
 end
+
+
+
+end
+
+
 
 
 endmodule
