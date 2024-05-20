@@ -1,175 +1,56 @@
-module Convol_layer(clk,b1,b2,b3,b4,b5);
-input clk;
-output [19:0] b1;
-output [19:0] b2;
-output [19:0] b3;
-output [19:0] b4;
-output [19:0] b5;
+module Convol_layer(clk,rst,valin,valout,convol_out1,convol_out_2,convol_out_3,convol_out_4,convol_out_5,
+convol_out_6,convol_out_7,convol_out_8,convol_out_9,convol_out_10);
 
-wire signed[3:0] row1 [9:0]; 
-wire signed[3:0] row2 [9:0]; 
-wire signed[3:0] row3 [9:0]; 
-wire signed[3:0] row4 [9:0]; 
-wire signed[3:0] row5 [9:0]; 
-wire signed[3:0] row6 [9:0]; 
-wire signed[3:0] row7 [9:0]; 
-wire signed[3:0] row8 [9:0]; 
-wire signed[3:0] row9 [9:0];
-wire signed[3:0] row10 [9:0];
+input clk, rst, valin;
+output signed [11:0] convol_out_1;
+output signed [11:0] convol_out_2;
+output signed [11:0] convol_out_3;
+output signed [11:0] convol_out_4;
+output signed [11:0] convol_out_5;
+output signed [11:0] convol_out_6;
+output signed [11:0] convol_out_7;
+output signed [11:0] convol_out_8;
+output signed [11:0] convol_out_9;
+output signed [11:0] convol_out_10;
+output reg valout;
 
-wire signed [3:0] pooled1 [4:0],
-wire signed [3:0] pooled2 [4:0],
-wire signed [3:0] pooled3 [4:0],
-wire signed [3:0] pooled4 [4:0],
-wire signed [3:0] pooled5 [4:0]
+wire signed[11:0] row1 [9:0]; 
+wire signed[11:0] row2 [9:0]; 
+wire signed[11:0] row3 [9:0]; 
+wire signed[11:0] row4 [9:0]; 
+wire signed[11:0] row5 [9:0]; 
+wire signed[11:0] row6 [9:0]; 
+wire signed[11:0] row7 [9:0]; 
+wire signed[11:0] row8 [9:0]; 
+wire signed[11:0] row9 [9:0];
+wire signed[11:0] row10 [9:0];
 
-wire [3:0] temp1 [9:0];
-wire [3:0] temp2 [9:0];
-wire [3:0] temp3 [9:0];
-wire [3:0] temp4 [9:0];
-wire [3:0] temp5 [9:0];
-wire [3:0] temp6 [9:0];
-wire [3:0] temp7 [9:0];
-wire [3:0] temp8 [9:0];
-wire [3:0] temp9 [9:0];
-wire [3:0] temp10 [9:0];
+wire signed [19:0] temp1 [9:0];
+wire signed [19:0] temp2 [9:0];
+wire signed [19:0] temp3 [9:0];
+wire signed [19:0] temp4 [9:0];
+wire signed [19:0] temp5 [9:0];
+wire signed [19:0] temp6 [9:0];
+wire signed [19:0] temp7 [9:0];
+wire signed [19:0] temp8 [9:0];
+wire signed [19:0] temp9 [9:0];
+wire signed [19:0] temp10 [9:0]; // w^22
 
 parameter  zeroPad = 0;
 
 
-wire signed[3:0] F1row1 [2:0];
-wire signed[3:0] F1row2 [2:0];
-wire signed[3:0] F1row3 [2:0];
+wire signed[7:0] F1row1 [2:0];
+wire signed[7:0] F1row2 [2:0];
+wire signed[7:0] F1row3 [2:0];
 
-wire signed[3:0] F2row1 [2:0];
-wire signed[3:0] F2row2 [2:0];
-wire signed[3:0] F2row3 [2:0];
+wire signed[7:0] F2row1 [2:0];
+wire signed[7:0] F2row2 [2:0];
+wire signed[7:0] F2row3 [2:0];
 
-wire signed[3:0] F3row1 [2:0];
-wire signed[3:0] F3row2 [2:0];
-wire signed[3:0] F3row3 [2:0];
+wire signed[7:0] F3row1 [2:0];
+wire signed[7:0] F3row2 [2:0];
+wire signed[7:0] F3row3 [2:0];
 
-assign F1row1[0] = 4'b0001;
-assign F1row1[1] = 4'b0001;
-assign F1row1[2] = 4'b0001;
-
-assign F2row1[0] = 4'b0001;
-assign F2row1[1] = 4'b0001;
-assign F2row1[2] = 4'b0001;
-
-assign F3row1[0] = 4'b0001;
-assign F3row1[1] = 4'b0001;
-assign F3row1[2] = 4'b0001;
-
-assign row1[0] = 4'b0001;
-assign row1[1] = 4'b0001;
-assign row1[2] = 4'b0001;
-assign row1[3] = 4'b0001;
-assign row1[4] = 4'b0001;
-assign row1[5] = 4'b0001;
-assign row1[6] = 4'b0001;
-assign row1[7] = 4'b0001;
-assign row1[8] = 4'b0001;
-assign row1[9] = 4'b0001;
-
-assign row2[0] = 4'b0001;
-assign row2[1] = 4'b0001;
-assign row2[2] = 4'b0001;
-assign row2[3] = 4'b0001;
-assign row2[4] = 4'b0001;
-assign row2[5] = 4'b0001;
-assign row2[6] = 4'b0001;
-assign row2[7] = 4'b0001;
-assign row2[8] = 4'b0001;
-assign row2[9] = 4'b0001;
-
-assign row3[0] = 4'b0001;
-assign row3[1] = 4'b0001;
-assign row3[2] = 4'b0001;
-assign row3[3] = 4'b0001;
-assign row3[4] = 4'b0001;
-assign row3[5] = 4'b0001;
-assign row3[6] = 4'b0001;
-assign row3[7] = 4'b0001;
-assign row3[8] = 4'b0001;
-assign row3[9] = 4'b0001;
-
-assign row4[0] = 4'b0001;
-assign row4[1] = 4'b0001;
-assign row4[2] = 4'b0001;
-assign row4[3] = 4'b0001;
-assign row4[4] = 4'b0001;
-assign row4[5] = 4'b0001;
-assign row4[6] = 4'b0001;
-assign row4[7] = 4'b0001;
-assign row4[8] = 4'b0001;
-assign row4[9] = 4'b0001;
-
-assign row5[0] = 4'b0001;
-assign row5[1] = 4'b0001;
-assign row5[2] = 4'b0001;
-assign row5[3] = 4'b0001;
-assign row5[4] = 4'b0001;
-assign row5[5] = 4'b0001;
-assign row5[6] = 4'b0001;
-assign row5[7] = 4'b0001;
-assign row5[8] = 4'b0001;
-assign row5[9] = 4'b0001;
-
-assign row6[0] = 4'b0001;
-assign row6[1] = 4'b0001;
-assign row6[2] = 4'b0001;
-assign row6[3] = 4'b0001;
-assign row6[4] = 4'b0001;
-assign row6[5] = 4'b0001;
-assign row6[6] = 4'b0001;
-assign row6[7] = 4'b0001;
-assign row6[8] = 4'b0001;
-assign row6[9] = 4'b0001;
-
-assign row7[0] = 4'b0001;
-assign row7[1] = 4'b0001;
-assign row7[2] = 4'b0001;
-assign row7[3] = 4'b0001;
-assign row7[4] = 4'b0001;
-assign row7[5] = 4'b0001;
-assign row7[6] = 4'b0001;
-assign row7[7] = 4'b0001;
-assign row7[8] = 4'b0001;
-assign row7[9] = 4'b0001;
-
-assign row8[0] = 4'b0001;
-assign row8[1] = 4'b0001;
-assign row8[2] = 4'b0001;
-assign row8[3] = 4'b0001;
-assign row8[4] = 4'b0001;
-assign row8[5] = 4'b0001;
-assign row8[6] = 4'b0001;
-assign row8[7] = 4'b0001;
-assign row8[8] = 4'b0001;
-assign row8[9] = 4'b0001;
-
-assign row9[0] = 4'b0001;
-assign row9[1] = 4'b0001;
-assign row9[2] = 4'b0001;
-assign row9[3] = 4'b0001;
-assign row9[4] = 4'b0001;
-assign row9[5] = 4'b0001;
-assign row9[6] = 4'b0001;
-assign row9[7] = 4'b0001;
-assign row9[8] = 4'b0001;
-assign row9[9] = 4'b0001;
-
-assign row10[0] = 4'b0001;
-assign row10[1] = 4'b0001;
-assign row10[2] = 4'b0001;
-assign row10[3] = 4'b0001;
-assign row10[4] = 4'b0001;
-assign row10[5] = 4'b0001;
-assign row10[6] = 4'b0001;
-assign row10[7] = 4'b0001;
-assign row10[8] = 4'b0001;
-assign row10[9] = 4'b0001;
 
 // 1행
 assign temp1[9] = (zeroPad*F1row1[2] + zeroPad*F1row1[1] + zeroPad*F1row1[0] + zeroPad*F1row2[2] + row1[9]*F1row2[1] + row1[8]*F1row2[0] + zeroPad*F1row3[2] + row2[9]*F1row3[1] + row2[8]*F1row3[0]);
@@ -282,21 +163,23 @@ assign temp10[2] = (row9[3]*F1row1[2] + row9[2]*F1row1[1] + row9[1]*F1row1[0] + 
 assign temp10[1] = (row9[2]*F1row1[2] + row9[1]*F1row1[1] + row9[0]*F1row1[0] + row10[2]*F1row2[2] + row10[1]*F1row2[1] + row10[0]*F1row2[0] + zeroPad*F1row3[2] + zeroPad*F1row3[1] + zeroPad*F1row3[0]);
 assign temp10[0] = (row9[1]*F1row1[2] + row9[0]*F1row1[1] + zeroPad*F1row1[0] + row10[1]*F1row2[2] + row10[0]*F1row2[1] + zeroPad*F1row2[0] + zeroPad*F1row3[2] + zeroPad*F1row3[1] + zeroPad*F1row3[0]);
 
-// ReLU 적용
-genvar i;
-generate
-    for (i = 0; i < 10; i = i + 1) begin
-        assign temp1[i] = temp1[i] > 0 ? temp1[i] : 0;
-        assign temp2[i] = temp2[i] > 0 ? temp2[i] : 0;
-        assign temp3[i] = temp3[i] > 0 ? temp3[i] : 0;
-        assign temp4[i] = temp4[i] > 0 ? temp4[i] : 0;
-        assign temp5[i] = temp5[i] > 0 ? temp5[i] : 0;
-        assign temp6[i] = temp6[i] > 0 ? temp6[i] : 0;
-        assign temp7[i] = temp7[i] > 0 ? temp7[i] : 0;
-        assign temp8[i] = temp8[i] > 0 ? temp8[i] : 0;
-        assign temp9[i] = temp9[i] > 0 ? temp9[i] : 0;
-        assign temp10[i] = temp10[i] > 0 ? temp10[i] : 0;
-    end
-endgenerate
+assign convol_out_1 = temp1[9];
+assign valout = valin;
+// // ReLU 적용
+// genvar i;
+// generate
+//     for (i = 0; i < 10; i = i + 1) begin
+//         assign temp1[i] = temp1[i] > 0 ? temp1[i] : 0;
+//         assign temp2[i] = temp2[i] > 0 ? temp2[i] : 0;
+//         assign temp3[i] = temp3[i] > 0 ? temp3[i] : 0;
+//         assign temp4[i] = temp4[i] > 0 ? temp4[i] : 0;
+//         assign temp5[i] = temp5[i] > 0 ? temp5[i] : 0;
+//         assign temp6[i] = temp6[i] > 0 ? temp6[i] : 0;
+//         assign temp7[i] = temp7[i] > 0 ? temp7[i] : 0;
+//         assign temp8[i] = temp8[i] > 0 ? temp8[i] : 0;
+//         assign temp9[i] = temp9[i] > 0 ? temp9[i] : 0;
+//         assign temp10[i] = temp10[i] > 0 ? temp10[i] : 0;
+//     end
+// endgenerate
 
 endmodule

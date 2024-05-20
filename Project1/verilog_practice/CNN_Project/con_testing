@@ -1,0 +1,145 @@
+module Convol_layer
+(
+	clk, rst,
+	in_data, cs,
+	
+	out_data_0, out_data_1, out_data_2, out_data_3, out_data_4,
+	out_data_5, out_data_6, out_data_7, out_data_8, out_data_9,
+	out_data_10, out_data_11, out_data_12, out_data_13, out_data_14,
+	out_data_15, out_data_16, out_data_17, out_data_18, out_data_19,
+	out_data_20, out_data_21, out_data_22, out_data_23, out_data_24,
+	out_data_25, out_data_26, out_data_27,
+	
+	valid_out
+);
+
+parameter WIDTH = 28, HEIGHT = 28, DATA_BIT = 8;
+localparam KERNEL_SIZE = 5;
+
+input wire cs;
+input clk, rst;
+input [DATA_BIT - 1 : 0]in_data;
+
+output reg [DATA_BIT - 1:0] out_data_0, out_data_1, out_data_2, out_data_3, out_data_4,
+							out_data_5, out_data_6, out_data_7, out_data_8, out_data_9,
+							out_data_10, out_data_11, out_data_12, out_data_13, out_data_14,
+							out_data_15, out_data_16, out_data_17, out_data_18, out_data_19,
+							out_data_20, out_data_21, out_data_22, out_data_23, out_data_24,
+							out_data_25, out_data_26, out_data_27;
+				
+output reg valid_out;
+
+reg [DATA_BIT - 1:0] row1 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row2 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row3 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row4 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row5 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row6 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row7 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row8 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row9 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row10 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row11 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row12 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row13 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row14 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row15 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row16 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row17 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row18 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row19 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row20 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row21 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row22 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row23 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row24 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row25 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row26 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row27 [(WIDTH - KERNEL_SIZE) : 0];
+reg [DATA_BIT - 1:0] row28 [(WIDTH - KERNEL_SIZE) : 0];
+
+
+
+reg [4:0] bit_counter; 
+
+
+always @(posedge clk) begin
+	if(rst == 0) begin
+		bit_counter <= 1'b0;
+		
+	end
+	else if(!cs) begin
+	
+		bit_counter <= bit_counter + 1'b1;
+	 
+
+		row1[bit_counter] <= in_data;
+		row2[bit_counter] <= in_data;
+		row3[bit_counter] <= in_data;
+		row4[bit_counter] <= in_data;
+		row5[bit_counter] <= in_data;
+		row6[bit_counter] <= in_data;
+		row7[bit_counter] <= in_data;
+		row8[bit_counter] <= in_data;
+		row9[bit_counter] <= in_data;
+		row10[bit_counter] <= in_data;
+		row11[bit_counter] <= in_data;
+		row12[bit_counter] <= in_data;
+		row13[bit_counter] <= in_data;
+		row14[bit_counter] <= in_data;
+		row15[bit_counter] <= in_data;
+		row16[bit_counter] <= in_data;
+		row17[bit_counter] <= in_data;
+		row18[bit_counter] <= in_data;
+		row19[bit_counter] <= in_data;
+		row20[bit_counter] <= in_data;
+		row21[bit_counter] <= in_data;
+		row22[bit_counter] <= in_data;
+		row23[bit_counter] <= in_data;
+		row24[bit_counter] <= in_data;
+		row25[bit_counter] <= in_data;
+		row26[bit_counter] <= in_data;
+		row27[bit_counter] <= in_data;
+		row28[bit_counter] <= in_data;
+        
+       
+	    end
+
+
+        else if(cs) begin
+		bit_counter <= bit_counter - 1'b1;
+		
+		out_data_0 <= row1[bit_counter + 1];
+		out_data_1 <= row2[bit_counter + 1];
+		out_data_2 <= row3[bit_counter + 1]; 
+		out_data_3 <= row4[bit_counter + 1]; 
+		out_data_4 <= row5[bit_counter + 1]; 
+		out_data_5 <= row6[bit_counter + 1]; 
+		out_data_6 <= row7[bit_counter + 1]; 
+		out_data_7 <= row8[bit_counter + 1]; 
+		out_data_8 <= row9[bit_counter + 1]; 
+		out_data_9 <= row10[bit_counter + 1]; 
+		out_data_10 <= row11[bit_counter + 1];
+		out_data_11 <= row12[bit_counter + 1]; 
+		out_data_12 <= row13[bit_counter + 1]; 
+		out_data_13 <= row14[bit_counter + 1]; 
+		out_data_14 <= row15[bit_counter + 1];
+		out_data_15 <= row16[bit_counter + 1]; 
+		out_data_16 <= row17[bit_counter + 1];
+		out_data_17 <= row18[bit_counter + 1];
+		out_data_18 <= row19[bit_counter + 1]; 
+		out_data_19 <= row20[bit_counter + 1];
+		out_data_20 <= row21[bit_counter + 1]; 
+		out_data_21 <= row22[bit_counter + 1]; 
+		out_data_22 <= row23[bit_counter + 1]; 
+		out_data_23 <= row24[bit_counter + 1]; 
+		out_data_24 <= row25[bit_counter + 1]; 
+		out_data_25 <= row26[bit_counter + 1];
+		out_data_26 <= row27[bit_counter + 1];
+		out_data_27 <= row28[bit_counter + 1];
+        
+       
+	    end
+    end
+
+endmodule
