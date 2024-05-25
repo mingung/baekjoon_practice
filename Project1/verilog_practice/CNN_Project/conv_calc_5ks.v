@@ -1,4 +1,4 @@
-module conv_calc(
+module conv_calc_5ks(
 	valid_in,
 	
 	out_data_0, out_data_1, out_data_2, out_data_3, out_data_4,

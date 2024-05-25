@@ -20,8 +20,8 @@ output [11:0] conv_out_1, conv_out_2, conv_out_3;
 
 output valid_out_2;
 
-convol_layer #(.WIDTH(28), .HEIGHT(28), .DATA_BIT(8)) 
-convol_layer (
+conv_buf_5ks #(.WIDTH(28), .HEIGHT(28), .DATA_BIT(8)) 
+conv_buf_5ks(
 	clk, rst,
 	in_data,
 	
@@ -34,7 +34,7 @@ convol_layer (
 	valid_out_1
 );
 
-conv_calc conv_calc(
+conv_calc_5ks conv_calc_5ks(
 	valid_out_1,
 	
 	out_data_0, out_data_1, out_data_2, out_data_3, out_data_4,
