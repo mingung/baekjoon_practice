@@ -1,3 +1,11 @@
+`define LDA 4'b0000
+`define STO 4'b0001
+`define ADD 4'b0010
+`define SUB 4'b0011
+`define JMP 4'b0100
+`define JGE 4'b0101
+`define JNE 4'b0110
+`define STP 4'b0111
 module mu0(reset, clk, addr, data, memrq, rnw);
 input reset, clk;
 inout [15:0] data;

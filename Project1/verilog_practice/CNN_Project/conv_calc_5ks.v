@@ -26,9 +26,9 @@ output signed [11:0] conv_out_3;
 
 output valid_out;
 
-wire signed [19:0] calc_out_1; // 2^18
-wire signed [19:0] calc_out_2; // 2^18
-wire signed [19:0] calc_out_3; // 2^18
+wire signed [19:0] calc_out_1; 
+wire signed [19:0] calc_out_2; 
+wire signed [19:0] calc_out_3; 
 
 wire signed [8:0] exp_data [0:24];
 wire signed [11:0] exp_bias [0:2];
@@ -95,7 +95,7 @@ assign calc_out_3 = exp_data[0]*weight_3[0] + exp_data[1]*weight_3[1] + exp_data
 					exp_data[20]*weight_3[20] + exp_data[21]*weight_3[21] + exp_data[22]*weight_3[22] + exp_data[23]*weight_3[23] + exp_data[24]*weight_3[24];
 
 
-assign conv_out_1 = calc_out_1[19:8] + exp_bias[0]; // 12 bits
+assign conv_out_1 = calc_out_1[19:8] + exp_bias[0];
 assign conv_out_2 = calc_out_2[19:8] + exp_bias[1];
 assign conv_out_3 = calc_out_3[19:8] + exp_bias[2];
 
