@@ -17,7 +17,7 @@ always @(negedge clk) // write
 if (memrq & !rnw) mem[addr] <= data;
 
 initial begin // program codes start
-    mem[0] = {`LDA, 12'h64}; // 0000 0110 0100
+    mem[0] = {`LDA, 12'h64}; // 0000 0000 0110 0100
     mem[1] = {`SUB, 12'h65};
     mem[2] = {`JNE, 12'h6};
     mem[3] = {`LDA, 12'h64};
